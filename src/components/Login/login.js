@@ -1,9 +1,5 @@
-
-
 function Login() {
     
-    console.log()
-
     return (<h1>Hello World</h1>)
 }
 
