@@ -6,7 +6,7 @@ import Login from "./Login/login";
 
 
 
-console.log(process.env.REACT_APP_URL_PROJECT)
+//console.log(process.env.REACT_APP_URL_PROJECT)
 
 export default function App() {
   return (
