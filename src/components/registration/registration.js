@@ -24,7 +24,6 @@ function Registration() {
 
   function sendForm(e) {
     e.preventDefault();
-    console.log("entrei no form");
     if (!loading) {
       setLoading(true);
 
@@ -38,7 +37,6 @@ function Registration() {
       );
 
       promise.then((res) => {
-        console.log("entrei");
         alert("Usuário criado com sucesso!");
         navigate(`../`);
         setForm(clearForm);
@@ -46,8 +44,6 @@ function Registration() {
       });
 
       promise.catch((err) => {
-        console.log("entrei não");
-        console.log(err.response);
         const message = err.response.data.message;
         alert(message);
         setForm(clearForm);

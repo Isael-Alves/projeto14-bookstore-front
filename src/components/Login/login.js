@@ -6,9 +6,7 @@ import { ThreeDots } from "react-loader-spinner";
 import { Button, Body, Form } from "../../styles/loginStyle";
 
 function Login() {
-  const dados = JSON.parse(localStorage.getItem("dados"));
-
-  const { setDados } = React.useContext(AuthContext);
+  const {dados, setDados } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
