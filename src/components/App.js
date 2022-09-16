@@ -2,6 +2,7 @@ import UserContext from "../context/UserContext.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login/login";
 import Registration from "./registration/registration";
+import { Products } from "./products/products.view.js";
 import GlobalStyle from "../styles/globalStyles";
 import { useState } from "react";
 
@@ -20,6 +21,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/sign-up" element={<Registration />} />
+            <Route path="/products" element={<Products />} /> 
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

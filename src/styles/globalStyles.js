@@ -59,8 +59,9 @@ a {
 }
 body {
 	font-family: 'Roboto', sans-serif;
-  color: #293845;
-  background-color: #0E0E13;
+  	
+	color: #ffffff;
+  	background-color: #0E0E13;
 }
 `;
 
