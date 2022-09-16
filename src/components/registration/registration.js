@@ -1,9 +1,14 @@
-import axios from "axios";
+
 import styled from "styled-components";
 import { ThreeDots } from "react-loader-spinner";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Body, Form } from "../../styles/loginStyle";
+import {signUp} from  '../../services/bookstore.services.js'
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 function Registration() {
   const navigate = useNavigate();
@@ -20,6 +25,7 @@ function Registration() {
       ...form,
       [e.target.name]: e.target.value,
     });
+   
   }
 
   function sendForm(e) {
@@ -31,14 +37,11 @@ function Registration() {
         ...form,
       };
 
-      const promise = axios.post(
-        process.env.EACT_APP_URL_PROJECT + `api/v4/driven-plus/auth/sign-up`,
-        body
-      );
+      const promise = signUp(body);
 
       promise.then((res) => {
         alert("Usuário criado com sucesso!");
-        navigate(`../`);
+        navigate(`/`);
         setForm(clearForm);
         setLoading(false);
       });

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../common/auth";
-import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 import { Button, Body, Form } from "../../styles/loginStyle";
+import { signIN } from '../../services/bookstore.services.js'
+import UserContext from "../../context/UserContext.js";
 
 function Login() {
-  const {dados, setDados } = React.useContext(AuthContext);
+  const { dados, setDados } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {user, setUser} = useContext(UserContext);
 
   function checkUserOnline() {
     if (!dados) {
@@ -31,10 +33,7 @@ function Login() {
         password,
       };
 
-      const promise = axios.post(
-        process.env.REACT_APP_URL_PROJECT + `api/v4/driven-plus/auth/login`,
-        body
-      );
+      const promise = signIN(body);
 
       promise.then((res) => {
         setDados(res.data);
@@ -44,7 +43,7 @@ function Login() {
         if (res.data.membership !== null) {
           navigate("../subscriptions");
         } else {
-          navigate("../sing-up");
+          navigate("/sing-up");
         }
       });
 
