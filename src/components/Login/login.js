@@ -1,28 +1,21 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../common/auth";
 import { ThreeDots } from "react-loader-spinner";
 import { Button, Body, Form } from "../../styles/loginStyle";
 import { signIN } from '../../services/bookstore.services.js'
-import UserContext from "../../context/UserContext.js";
+
 
 function Login() {
+  
   const { dados, setDados } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {user, setUser} = useContext(UserContext);
 
-  function checkUserOnline() {
-    if (!dados) {
-      return "";
-    } else {
-      return navigate("../subscriptions");
-    }
-  }
 
-  checkUserOnline();
+
 
   function handForm(e) {
     if (!loading) {
@@ -40,11 +33,7 @@ function Login() {
         setEmail("");
         setPassword("");
         setLoading(false);
-        if (res.data.membership !== null) {
-          navigate("../subscriptions");
-        } else {
-          navigate("/sing-up");
-        }
+        navigate("/products");
       });
 
       promise.catch((err) => {
