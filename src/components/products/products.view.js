@@ -1,12 +1,16 @@
+import { ProductsBody, NavProducts } from '../../styles/productsStyles';
 
-function Products(){
+
+function Products() {
 
 
-    return(
-        <>
-            <h1>Products</h1>
-        </>
+    return (
+        <ProductsBody>
+            <NavProducts>
+                
+            </NavProducts>
+        </ProductsBody>
     )
 }
 
-export {Products}
+export { Products }
