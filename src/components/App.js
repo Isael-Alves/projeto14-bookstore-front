@@ -3,6 +3,8 @@ import Login from "./Login/login";
 import Registration from "./registration/registration";
 import { Products } from "./products/products.view.js";
 import GlobalStyle from "../styles/globalStyles";
+import Cart from "./Cart/cart";
+import CheckOut from "./CheckOut/checkOut";
 
 
 
@@ -19,6 +21,8 @@ export default function App() {
           <Route path="/" element={<Login />} />
           <Route path="/sign-up" element={<Registration />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkOut" element={<CheckOut />} />
         </Routes>
       </BrowserRouter>
     </>
