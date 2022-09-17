@@ -1,5 +1,6 @@
 import img from "../../assets/img/81ibfYk4qmL.jpg";
 import styled from "styled-components";
+import { BsCartDash } from "react-icons/bs";
 
 function Cart() {
   return (
@@ -8,33 +9,45 @@ function Cart() {
       <ListBooks>
         <li>
           <img src={img} alt="" />
-          <div>
+          <section>
             <h2>Harry Potter e a pedra filosofal</h2>
             <h2>R$ 80,00</h2>
+          </section>
+          <div>
+            <BsCartDash />
           </div>
         </li>
 
         <li>
           <img src={img} alt="" />
-          <div>
+          <section>
             <h2>Harry Potter e a pedra filosofal</h2>
             <h2>R$ 80,00</h2>
+          </section>
+          <div>
+            <BsCartDash />
           </div>
         </li>
 
         <li>
           <img src={img} alt="" />
-          <div>
+          <section>
             <h2>Harry Potter e a pedra filosofal</h2>
             <h2>R$ 80,00</h2>
+          </section>
+          <div>
+            <BsCartDash />
           </div>
         </li>
 
         <li>
           <img src={img} alt="" />
-          <div>
+          <section>
             <h2>Harry Potter e a pedra filosofal</h2>
             <h2>R$ 80,00</h2>
+          </section>
+          <div>
+            <BsCartDash />
           </div>
         </li>
       </ListBooks>
@@ -64,12 +77,13 @@ const ListBooks = styled.ul`
     display: flex;
     margin-bottom: 15px;
     border-radius: 5px;
+    padding:10px;
     color: #000000;
     background-color: #ffffff;
     img {
       height: 140px;
       width: 90px;
-      margin: 5px;
+      margin-right: 5px;
     }
     h2 {
       margin-top: 15px;
@@ -77,6 +91,19 @@ const ListBooks = styled.ul`
       font-size: 15px;
       font-weight: 500;
       line-height: 17px;
+    }
+
+    div{
+      width: 40px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
     }
   }
 `;
