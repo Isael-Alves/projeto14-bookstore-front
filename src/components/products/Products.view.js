@@ -1,6 +1,6 @@
 import { ProductsBody, NavProducts, ProductsList, CustomIoCart} from '../../styles/productsStyles.js';
 import {Product} from './Product.View.js'
-
+import {getProducts} from '../../services/bookstore.services.js' 
 
 
 function Products() {
@@ -21,7 +21,7 @@ function Products() {
     ]
 
     return (
-        <ProductsBody>
+        <ProductsBody >
             <NavProducts>
             <h2>Olá Fulano</h2>
             <CustomIoCart />

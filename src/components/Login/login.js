@@ -8,7 +8,7 @@ import { signIN } from '../../services/bookstore.services.js'
 
 function Login() {
   
-  const { dados, setDados } = React.useContext(AuthContext);
+  const { setDados } = React.useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");

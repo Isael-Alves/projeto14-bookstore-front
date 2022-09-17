@@ -11,7 +11,7 @@ const ProductBook = styled.div`
     display:flex;
     flex-direction:column;
     align-items:flex-start;
-    border: 5px solid #ff4791; 
+    border: 5px solid ${props => props.borda}; 
     h2{
         font-family: 'Raleway';
         font-style: normal;
