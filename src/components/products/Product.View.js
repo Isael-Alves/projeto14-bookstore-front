@@ -15,7 +15,7 @@ function Product({ id, titulo, author, img, value }) {
         console.log(token);
 
         if (ativa) {
-            alert('Produto já adicionado no carrinho!');
+            alert('Livro já adicionado no carrinho!');
             return;
         }
 

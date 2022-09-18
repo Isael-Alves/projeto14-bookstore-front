@@ -24,7 +24,6 @@ function getProducts(token){
 }
 
 function postCart(body, token){
-    console.log('postCart '+ token)
     const promise = axios.post(`${BASE_URL}/cart`, body,{ headers: {"Authorization" : `Bearer ${token}`}})
     return promise;
 }
