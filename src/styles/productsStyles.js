@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { IoCart } from "react-icons/io5";
-import { ColorRing } from "react-loader-spinner";
+import { Link } from 'react-router-dom'
+
 const ProductsBody = styled.div`
 
     //background-color: crimson;
@@ -57,6 +58,11 @@ const CustomIoCart = styled(IoCart)`
     color:#ffffff
 `
 
+const StyledLink = styled(Link)`
+
+    text-decoration: none;
+   
+`
 
 
-export { ProductsBody, NavProducts, ProductsList, CustomIoCart  }
+export { ProductsBody, NavProducts, ProductsList, CustomIoCart, StyledLink }
