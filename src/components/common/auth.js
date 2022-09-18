@@ -4,6 +4,6 @@ export const AuthContext = React.createContext({});
 
 export const AuthProvider = (props) => {
     const [dados, setDados] = useState({});
-    //console.log(dados);
+    console.log(dados);
   return <AuthContext.Provider value={{dados, setDados}}>{props.children}</AuthContext.Provider>;
 };
