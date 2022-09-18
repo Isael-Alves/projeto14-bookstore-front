@@ -34,7 +34,7 @@ function Products() {
                     </StyledLink>
                 </NavProducts>
                 <ProductsList>
-                    {books.map(book => <Product titulo={book.name} author={book.author} img={book.imagem} value={book.value} />)}
+                    {books.map(book => <Product id={book._id}titulo={book.name} author={book.author} img={book.imagem} value={book.value} />)}
                 </ProductsList>
             </> : <ThreeDots color="#FFFFFF" height={20} width={70} />}
         </ProductsBody>

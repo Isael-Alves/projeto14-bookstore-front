@@ -21,7 +21,13 @@ function getProducts(token){
     const promise = axios.get(`${BASE_URL}/products`,{ headers: {"Authorization" : `Bearer ${token}`}});
     return promise;
 
-
 }
 
-export{signUp, signIN, getProducts}
+function postCart(body, token){
+    console.log('postCart '+ token)
+    const promise = axios.post(`${BASE_URL}/cart`, body,{ headers: {"Authorization" : `Bearer ${token}`}})
+    return promise;
+}
+
+
+export{signUp, signIN, getProducts, postCart}
