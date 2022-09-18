@@ -12,9 +12,16 @@ function signUp(body){
 }
 
 function signIN(body){
-    console.log('singIN');
     const promise = axios.post(`${BASE_URL}/signIn`,body)
     return promise;
 }
 
-export{signUp, signIN}
+
+function getProducts(token){
+    const promise = axios.get(`${BASE_URL}/products`,{ headers: {"Authorization" : `Bearer ${token}`}});
+    return promise;
+
+
+}
+
+export{signUp, signIN, getProducts}
