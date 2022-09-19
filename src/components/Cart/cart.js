@@ -37,7 +37,7 @@ function Cart() {
     }
     console.log(Carrinho);
     setDadosCarrinhos(Carrinho);
-    navigate('checkOut');
+    navigate('../checkOut');
   }
 
   function AddBooks() {
@@ -50,9 +50,9 @@ function Cart() {
           <li key={i}>
             <img src={imagem} alt="" />
             <section>
-              <h2>{name}</h2>
-              <h2>{author}</h2>
-              <h2>R$ {custo.replace(".",",")}</h2>
+              <h2>Titulo: {name}</h2>
+              <h2>Autor: {author}</h2>
+              <h2>Custo: R$ {custo.replace(".",",")}</h2>
             </section>
             <div>
               <BsCartDash />
