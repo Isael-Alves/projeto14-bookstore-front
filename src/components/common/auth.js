@@ -4,11 +4,11 @@ export const AuthContext = React.createContext({});
 
 export const AuthProvider = (props) => {
   const [dados, setDados] = useState({});
-  const [dadosCarrinho, setDadosCarrinho] = useState({});
+  const [cart, setCart] = useState({});
 
   return (
     <AuthContext.Provider
-      value={{ dados, setDados, dadosCarrinho, setDadosCarrinho }}
+      value={{ dados, setDados, cart, setCart }}
     >
       {props.children}
     </AuthContext.Provider>

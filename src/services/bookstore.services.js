@@ -41,4 +41,12 @@ function Status(token){
   return promise;
 }
 
-export { signUp, signIN, getProducts, postCart, getBooksCart,Status };
+function postCheckOut(body, token) {
+  const promise = axios.post(`${BASE_URL}/checkout`, body, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return promise;
+}
+
+
+export { signUp, signIN, getProducts, postCart, getBooksCart, Status, postCheckOut };

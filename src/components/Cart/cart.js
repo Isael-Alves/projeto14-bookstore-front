@@ -7,7 +7,7 @@ import { getBooksCart } from "../../services/bookstore.services";
 import { AuthContext } from "../common/auth";
 
 function Cart() {
-  const { dados, setDadosCarrinhos } = React.useContext(AuthContext);
+  const { dados, setCart } = React.useContext(AuthContext);
   const [books, setBooks] = useState([]);
   const navigate = useNavigate();
 
@@ -35,8 +35,8 @@ function Cart() {
       valorTotal,
       quantProducts: cont
     }
-    console.log(Carrinho);
-    setDadosCarrinhos(Carrinho);
+    
+    setCart(Carrinho);
     navigate('../checkOut');
   }
 

@@ -1,15 +1,49 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../../styles/loginStyle";
+import { AuthContext } from "../common/auth";
+import { postCheckOut } from "../../services/bookstore.services";
 
 function CheckOut() {
+  const navigate = useNavigate();
+  const [payment, setPayment] = useState("Dinheiro");
+  const { dados, cart } = React.useContext(AuthContext);
+  const { token } = dados;
+  const { valorTotal, quantProducts } = cart;
+
+  const custo = String((valorTotal / 100).toFixed(2));
+
+  function compraConfirmada() {
+    const compra = { ...cart, payment };
+
+    if (window.confirm("Tudo certo?")) {
+      const promise = postCheckOut(compra, token);
+
+      promise.then((res) => {
+        console.log(res);
+        navigate("../products");
+      });
+
+      promise.catch((e) => console.log(e));
+    }
+  }
+
   return (
     <Box>
       <h1>CheckOut</h1>
       <div>
-        <h2>Quantidade de produtos: 7</h2>
-        <h2>Total a pagar: R$ 250,00</h2>
+        <h2>Quantidade de produtos: {quantProducts}</h2>
+        <h2>Total a pagar: R$ {custo}</h2>
       </div>
-      <Button> Confirmar compra</Button>
+      <section>
+        <h3>Escolha foma de pagamento:</h3>
+
+        <div onClick={() => setPayment("Dinheiro")}>Dinheiro</div>
+        <div onClick={() => setPayment("Cartão")}>Cartão</div>
+      </section>
+
+      <Button onClick={() => compraConfirmada()}> Confirmar compra</Button>
     </Box>
   );
 }
@@ -39,5 +73,24 @@ const Box = styled.div`
     font-size: 19px;
     line-height: 22px;
     margin-bottom: 10px;
+  }
+
+  section {
+    margin-bottom: 15px;
+    h3 {
+      margin-bottom: 10px;
+    }
+    div {
+      width: 90px;
+      height: 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 5px;
+      margin-bottom: 5px;
+      background-color: #ff4791;
+    }
   }
 `;
