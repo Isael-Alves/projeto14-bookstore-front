@@ -37,8 +37,8 @@ function Login() {
       });
 
       promise.catch((err) => {
-        const message = err.response.data.message;
-        alert(message);
+        console.error(err)
+        alert('Usuario ou Senha Invalida');
         setEmail("");
         setPassword("");
         setLoading(false);

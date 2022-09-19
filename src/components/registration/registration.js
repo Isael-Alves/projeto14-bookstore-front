@@ -47,8 +47,8 @@ function Registration() {
       });
 
       promise.catch((err) => {
-        const message = err.response.data.message;
-        alert(message);
+        console.error(err)
+        alert('Erro ao cadastrar Usuário');
         setForm(clearForm);
         setLoading(false);
       });
