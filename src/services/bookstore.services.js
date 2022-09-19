@@ -37,7 +37,6 @@ function getBooksCart(token) {
 }
 
 function Status(token){
-  console.log('PostStatus '+ token);
   const promise = axios.post(`${BASE_URL}/status`, {token},);
   return promise;
 }
