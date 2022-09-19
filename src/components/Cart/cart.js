@@ -7,7 +7,7 @@ import { getBooksCart } from "../../services/bookstore.services";
 import { AuthContext } from "../common/auth";
 
 function Cart() {
-  const { dados } = React.useContext(AuthContext);
+  const { dados, setDadosCarrinhos } = React.useContext(AuthContext);
   const [books, setBooks] = useState([]);
   const navigate = useNavigate();
 
@@ -21,18 +21,38 @@ function Cart() {
     promise.catch((e) => console.error(e));
   }, []);
 
+  function confirmarCompra() {
+    let valorTotal = 0;
+    let cont = 0;
+    
+    books.map((book) => {
+      valorTotal += Number(book.valor);
+      cont+=1
+    });
+
+    const Carrinho = {
+      books,
+      valorTotal,
+      quantProducts: cont
+    }
+    console.log(Carrinho);
+    setDadosCarrinhos(Carrinho);
+    navigate('checkOut');
+  }
+
   function AddBooks() {
     if (books.length > 0) {
       return books.map((book, i) => {
         const { name, imagem, valor, author } = book;
-
+        const custo = String((valor/100).toFixed(2));
+      
         return (
           <li key={i}>
             <img src={imagem} alt="" />
             <section>
               <h2>{name}</h2>
               <h2>{author}</h2>
-              <h2>R$ {valor}</h2>
+              <h2>R$ {custo.replace(".",",")}</h2>
             </section>
             <div>
               <BsCartDash />
@@ -54,7 +74,7 @@ function Cart() {
       <ListBooks>
         <AddBooks />
       </ListBooks>
-      <Button onClick={() => navigate("../checkOut")}>Comprar</Button>
+      <Button onClick={() => confirmarCompra()}>Comprar</Button>
     </>
   );
 }
