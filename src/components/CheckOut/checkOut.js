@@ -17,7 +17,7 @@ function CheckOut() {
   function compraConfirmada() {
     const compra = { ...cart, payment };
 
-    if (window.confirm("Tudo certo?")) {
+    if (window.confirm(`Tudo certo?\n Comprador: ${dados.name}\n Forma de pagamento: ${payment}\n Total: ${custo}`)) {
       const promise = postCheckOut(compra, token);
 
       promise.then((res) => {
