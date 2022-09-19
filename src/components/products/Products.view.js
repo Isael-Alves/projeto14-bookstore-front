@@ -1,7 +1,7 @@
 import { ProductsBody, NavProducts, ProductsList, CustomIoCart, StyledLink } from '../../styles/productsStyles.js';
 import { Product } from './Product.View.js'
 import React, { useState, useEffect } from 'react';
-import { getProducts } from '../../services/bookstore.services.js';
+import { getProducts,postStatus } from '../../services/bookstore.services.js';
 import { AuthContext } from "../common/auth";
 import { ThreeDots } from "react-loader-spinner";
 
@@ -14,7 +14,7 @@ function Products() {
     useEffect(() => {
 
         const promise = getProducts(dados.token);
-
+        
         promise.then((res) => {
             setBooks(res.data)
         });

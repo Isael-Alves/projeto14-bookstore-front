@@ -36,4 +36,9 @@ function getBooksCart(token) {
   return promise;
 }
 
-export { signUp, signIN, getProducts, postCart, getBooksCart };
+function Status(token){
+  const promise = axios.post(`${BASE_URL}/status`, {token},);
+  return promise;
+}
+
+export { signUp, signIN, getProducts, postCart, getBooksCart,Status };
